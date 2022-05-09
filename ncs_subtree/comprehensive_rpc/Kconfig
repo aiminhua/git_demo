@@ -1,0 +1,70 @@
+#
+# Copyright (c) 2018 Nordic Semiconductor ASA
+#
+# SPDX-License-Identifier: LicenseRef-BSD-5-Clause-Nordic
+#
+
+source "Kconfig.zephyr"
+menu "comprehensive_rpc example"
+
+config BLE_NETWORK_CORE
+	bool "Both BLE host and controller run on network core"
+	help
+	  Enable the whole BLE stack running on network core
+
+config EXAMPLE_I2C
+	bool "load I2C example or not"
+	help
+		if yes, load I2C example
+		
+config EXAMPLE_SPIM
+	bool "load SPI master example or not"
+	help
+		if yes, load SPI master example		
+		
+config EXAMPLE_EXT_INT
+	bool "load external IO interrupt example or not"
+	help
+		if yes, load external IO interrupt example
+
+config EXAMPLE_ADC
+	bool "load ADC example or not"
+	help
+		if yes, load ADC example		
+
+config EXAMPLE_HS_UART
+	bool "load high speed UART example or not"
+	help
+		if yes, load high speed UART example	  
+
+config EXAMPLE_FLASH
+	bool "load Flash access usage example"
+	default n
+	help
+		if yes, load Flash access usage example
+
+config RPC_REMOTE_API
+	bool "app core and net core communicate by remote API. that is, app core can call net core API, and net core can also call app core API"
+	help
+	  enable the RPC api mode
+	  
+config RPC_SMP_BT
+	bool "load DFU example over BLE SMP"
+	help
+		if yes, load DFU example over BLE SMP		
+
+config NCS_V1_5_x
+	bool "use NCS v1.5.x or earlier API"
+	help
+		use NCS v1.5.x or earlier API
+
+config NCS_V1_6_x
+	bool "use NCS v1.6.x dedicated APIs"
+	help
+		use NCS v1.6.x dedicated APIs		
+		
+module = COMPREHENSIVE_RPC_EXAMPLE_CONFIG
+module-str = comprehensive_rpc example configurations
+source "${ZEPHYR_BASE}/subsys/logging/Kconfig.template.log_config"
+
+endmenu
